@@ -7,10 +7,14 @@ import {AppComponent} from './app.component';
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AlertComponent} from "./components/alert/alert.component";
+import {ConfirmModalComponent} from "./components/confirm-modal/confirm-modal.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
