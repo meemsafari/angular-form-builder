@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <app-alert [type]="'warning'" *ngIf="formAccessLevel != 'edit'">
+        You can just view form!
+    </app-alert>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div *ngFor="let field of formConfig" class="mb-3">
+            <label [for]="field.id" class="form-label">{{ field.label }}</label>
+            <div [ngSwitch]="field.type">
+                <input
+                    *ngSwitchCase="'string'"
+                    type="text"
+                    [formControlName]="field.id"
+                    class="form-control"
+                    [id]="field.id"
+                    [maxLength]="field?.maxLength"
+                />
+                <input
+                    *ngSwitchCase="'number'"
+                    type="number"
+                    [formControlName]="field.id"
+                    class="form-control"
+                    [id]="field.id"
+                    [min]="field.min ? field.min : 0"
+                    [max]="field.max ? field.max : '999999'"
+                />
+                <input
+                    *ngSwitchCase="'date'"
+                    type="date"
+                    [formControlName]="field.id"
+                    class="form-control"
+                    [id]="field.id"
+                />
+                <select
+                    *ngSwitchCase="'select'"
+                    [formControlName]="field.id"
+                    class="form-select"
+                    [id]="field.id"
+                >
+                    <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>
+                </select>
+                <textarea
+                    *ngSwitchCase="'description'"
+                    [formControlName]="field.id"
+                    class="form-control"
+                    [id]="field.id"
+                    [maxLength]="field?.maxLength"
+                ></textarea>
+            </div>
+            <div *ngIf="isFieldInvalid(field.id) && form.get(field.id)?.touched" class="text-danger">
+                {{ field.label }} is required.
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success btn-sm" *ngIf="formAccessLevel == 'edit'">Submit</button>
+            <button type="button" class="btn btn-primary btn-sm" routerLink="/form/{{ formId }}"
+                    *ngIf="formAccessLevel == 'edit'">
+                Edit Fields
+            </button>
+            <button type="button" class="btn btn-danger btn-sm" routerLink="/form">
+                Forms list
+            </button>
+        </div>
+    </form>
+</div>

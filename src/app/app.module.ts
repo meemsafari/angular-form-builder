@@ -14,6 +14,7 @@ import {FormConfigService} from "./services/form-config.service";
 import {FormsListComponent} from "./pages/forms-list/forms-list.component";
 import {FormsConfigComponent} from "./pages/forms-config/forms-config.component";
 import {FieldConfigurationFormComponent} from "./components/field-configuration-form/field-configuration-form.component";
+import {FormViewComponent} from "./pages/form-view/form-view.component";
 
 @NgModule({
   declarations: [
@@ -22,14 +23,15 @@ import {FieldConfigurationFormComponent} from "./components/field-configuration-
     ConfirmModalComponent,
     FormsListComponent,
     FormsConfigComponent,
-    FieldConfigurationFormComponent
+    FieldConfigurationFormComponent,
+    FormViewComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ToastrModule.forRoot(),
