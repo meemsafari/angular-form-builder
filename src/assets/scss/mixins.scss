@@ -1,0 +1,16 @@
+@import "variables";
+
+@mixin button($background, $border: $background, $color: "white") {
+    color: $color;
+    background-color: $background;
+    border: 1px solid $border;
+    outline: none;
+    box-shadow: none;
+    span:before {
+        color: $color;
+    }
+    &:hover, &:focus {
+        background-color: darken($background, 5%)!important;
+        border: 1px solid darken($border, 5%);
+    }
+}
