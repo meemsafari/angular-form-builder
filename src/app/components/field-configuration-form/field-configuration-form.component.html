@@ -1,0 +1,106 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <form [formGroup]="fieldForm" (ngSubmit)="saveFieldConfig()">
+            <div class="mb-3">
+                <label for="fieldLabel" class="form-label">Label</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="fieldLabel"
+                    formControlName="label"
+                >
+                <div *ngIf="fieldForm.get('label')?.hasError('required')" class="text-danger">
+                    Label is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="fieldType" class="form-label">Type</label>
+                <select
+                    class="form-select"
+                    id="fieldType"
+                    formControlName="type"
+                >
+                    <option value="string">String</option>
+                    <option value="number">Number</option>
+                    <option value="date">Date</option>
+                    <option value="description">Description</option>
+                    <option value="select">Select</option>
+                </select>
+                <div *ngIf="fieldForm.get('type')?.hasError('required')" class="text-danger">
+                    Type is required.
+                </div>
+            </div>
+
+            <div class="mb-3" *ngIf="fieldForm.get('type')?.value === 'number'">
+                <label for="min" class="form-label">Minimum Value</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="min"
+                    formControlName="min"
+                >
+            </div>
+
+            <div class="mb-3" *ngIf="fieldForm.get('type')?.value === 'number'">
+                <label for="max" class="form-label">Maximum Value</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="max"
+                    formControlName="max"
+                >
+            </div>
+
+            <div class="mb-3" *ngIf="fieldForm.get('type')?.value === 'string' || fieldForm.get('type')?.value === 'description'">
+                <label for="maxLength" class="form-label">Maximum Length</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="maxLength"
+                    formControlName="maxLength"
+                >
+            </div>
+
+            <div class="mb-3" *ngIf="fieldForm.get('type')?.value === 'select'">
+                <label for="options" class="form-label">Options (Comma-separated)</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="options"
+                    formControlName="options"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="accessLevel" class="form-label">Access level</label>
+                <select
+                    class="form-select"
+                    id="accessLevel"
+                    formControlName="accessLevel"
+                >
+                    <option value="view">View</option>
+                    <option value="edit">Edit</option>
+                </select>
+                <div *ngIf="fieldForm.get('accessLevel')?.hasError('required')" class="text-danger">
+                    Access level is required.
+                </div>
+            </div>
+
+            <div class="form-check mb-3">
+                <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="isRequired"
+                    formControlName="required"
+                >
+                <label class="form-check-label" for="isRequired">Required</label>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success btn-sm">Save</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="cancelFieldEdit()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

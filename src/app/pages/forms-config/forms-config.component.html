@@ -1,0 +1,81 @@
+<div class="row g-5">
+    <div class="col-12">
+        <button class="btn btn-success btn-sm mb-3" (click)="addField()">Add Field</button>
+        <app-field-configuration-form
+            *ngIf="selectedField"
+            [field]="selectedField"
+            (fieldSaved)="saveField($event)"
+            (fieldCanceled)="cancelFieldEdit()"
+        ></app-field-configuration-form>
+        <ng-container *ngIf="formFields && formFields.length > 0">
+            <div *ngFor="let field of formFields; let i = index" class="card mt-3 mb-3">
+                <div class="card-header">
+                    <span class="h5 inline-middle mb-0">
+                        {{ i + 1 }}.
+                        {{ field.label }}
+                    </span>
+                    <button class="btn btn-success btn-sm float-end" (click)="editField(field)">
+                        Edit
+                    </button>
+                    <button class="btn btn-danger btn-sm float-end me-2" (click)="confirmDelete(field.id)">
+                        Delete
+                    </button>
+                </div>
+                <div class="card-body">
+                    <ul class="form-configs-list">
+                        <li>
+                            <strong>Label:</strong>
+                            {{ field.label }}
+                        </li>
+                        <li>
+                            <strong>Type:</strong>
+                            {{ field.type }}
+                        </li>
+                        <li>
+                            <strong>Required:</strong>
+                            {{ field.required ? 'Yes' : 'No' }}
+                        </li>
+                        <li>
+                            <strong>AccessLevel:</strong>
+                            {{ field.accessLevel }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+        <app-alert [type]="'info'" *ngIf="!formFields || formFields.length == 0">No Items!</app-alert>
+    </div>
+    <div class="col-12">
+        <div class="mb-3">
+            <label for="formName" class="form-label">Form name</label>
+            <input
+                type="text"
+                class="form-control"
+                id="formName"
+                [(ngModel)]="formName"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="accessLevel" class="form-label">Form Access level</label>
+            <select
+                class="form-select"
+                id="accessLevel"
+                [(ngModel)]="formAccessLevel"
+            >
+                <option value="view">View</option>
+                <option value="edit">Edit</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="btn-group">
+            <button class="btn btn-success btn-sm" (click)="saveForm()" *ngIf="formFields && formFields.length > 0">
+                Save form
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" routerLink="/form/{{ pageState }}/view"
+            *ngIf="pageState != 'add'">View</button>
+            <button type="button" class="btn btn-danger btn-sm" routerLink="/form">Cancel</button>
+        </div>
+    </div>
+</div>
+<app-confirm-modal [elementId]="'delete-field'" (confirm)="deleteField($event)"></app-confirm-modal>

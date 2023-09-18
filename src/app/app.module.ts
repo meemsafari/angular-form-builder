@@ -12,13 +12,17 @@ import {ConfirmModalComponent} from "./components/confirm-modal/confirm-modal.co
 import {FormService} from "./services/form.service";
 import {FormConfigService} from "./services/form-config.service";
 import {FormsListComponent} from "./pages/forms-list/forms-list.component";
+import {FormsConfigComponent} from "./pages/forms-config/forms-config.component";
+import {FieldConfigurationFormComponent} from "./components/field-configuration-form/field-configuration-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
     ConfirmModalComponent,
-    FormsListComponent
+    FormsListComponent,
+    FormsConfigComponent,
+    FieldConfigurationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,9 @@ import {FormsListComponent} from "./pages/forms-list/forms-list.component";
     ToastrModule.forRoot(),
     FormService,
     FormConfigService
+  ],
+  exports: [
+    ConfirmModalComponent
   ],
   bootstrap: [AppComponent]
 })
