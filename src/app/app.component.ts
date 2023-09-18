@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-form-builder';
+  title = 'Angular Form Builder';
+  subTitle = 'You can create different fields for each form here and save it.';
 }
