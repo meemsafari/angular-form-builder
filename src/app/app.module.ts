@@ -11,12 +11,14 @@ import {AlertComponent} from "./components/alert/alert.component";
 import {ConfirmModalComponent} from "./components/confirm-modal/confirm-modal.component";
 import {FormService} from "./services/form.service";
 import {FormConfigService} from "./services/form-config.service";
+import {FormsListComponent} from "./pages/forms-list/forms-list.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    FormsListComponent
   ],
   imports: [
     BrowserModule,

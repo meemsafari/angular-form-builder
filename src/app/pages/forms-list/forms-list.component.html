@@ -1,0 +1,56 @@
+<div class="container mt-4">
+    <h2>Forms List</h2>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success btn-sm mb-3" routerLink="/form/add">Add Form</button>
+            <div class="table-responsive" *ngIf="forms && forms.length > 0">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Fields</th>
+                            <th>Access Level</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of forms; let i = index;">
+                            <td>
+                                {{ i + 1 }}
+                            </td>
+                            <td>
+                                {{ item.name }}
+                            </td>
+                            <td>
+                                <span class="badge bg-primary me-1 mb-1" *ngFor="let field of item.fieldItems">
+                                    {{ field.label }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge bg-warning">
+                                    {{ item.accessLevel }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="confirmDelete(item)">
+                                        Delete
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-sm" routerLink="/form/{{ item.id }}/view">
+                                        View
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-sm" routerLink="/form/{{ item.id }}">
+                                        Edit
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <app-alert [type]="'info'" *ngIf="!forms || forms.length == 0">No Items!</app-alert>
+        </div>
+    </div>
+</div>
+<app-confirm-modal [elementId]="'delete-form'" (confirm)="deleteForm($event)"></app-confirm-modal>
