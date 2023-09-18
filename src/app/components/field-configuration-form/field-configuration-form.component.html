@@ -52,7 +52,8 @@
                 >
             </div>
 
-            <div class="mb-3" *ngIf="fieldForm.get('type')?.value === 'string' || fieldForm.get('type')?.value === 'description'">
+            <div class="mb-3"
+                 *ngIf="fieldForm.get('type')?.value === 'string' || fieldForm.get('type')?.value === 'description'">
                 <label for="maxLength" class="form-label">Maximum Length</label>
                 <input
                     type="number"

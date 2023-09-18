@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { FormField } from '../interfaces/form-field.interface';
+import {Injectable} from '@angular/core';
+import {FormField} from '../interfaces/form-field.interface';
 
 @Injectable({
     providedIn: 'root'

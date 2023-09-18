@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormField } from '../../interfaces/form-field.interface';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormField} from '../../interfaces/form-field.interface';
 
 @Component({
     selector: 'app-field-configuration-form',
@@ -24,7 +24,8 @@ export class FieldConfigurationFormComponent implements OnInit {
 
     fieldForm: FormGroup = new FormGroup({});
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+    }
 
     ngOnInit() {
         this.isNewField = !this.field.id;

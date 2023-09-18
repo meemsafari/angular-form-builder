@@ -4,63 +4,65 @@
 @import "assets/scss/mixins";
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  margin: 0;
-  color: $primary;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    color: $primary;
 }
 
 ul {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .btn {
-  transition: background-color 360ms ease, transform 360ms ease, border-radius 360ms ease, box-shadow 400ms ease,
-  border-color 360ms ease;
+    transition: background-color 360ms ease, transform 360ms ease, border-radius 360ms ease, box-shadow 400ms ease,
+    border-color 360ms ease;
 }
 
 .btn-primary {
-  @include button($primary);
+    @include button($primary);
 }
 
 .btn-secondary {
-  @include button($secondary);
+    @include button($secondary);
 }
 
 .btn-success {
-  @include button($success);
+    @include button($success);
 }
 
 .btn-info {
-  @include button($info);
+    @include button($info);
 }
 
 .btn-danger {
-  @include button($danger);
+    @include button($danger);
 }
 
 .btn-warning {
-  @include button($danger);
+    @include button($danger);
 }
 
 .card {
-  @extend %shadow;
-  border: none;
-  transition: 250ms all ease-in;
-  .card-body {
-    padding: 2rem;
-  }
-  .card-header {
-    border-bottom: none;
-    background-color: $gray;
-  }
+    @extend %shadow;
+    border: none;
+    transition: 250ms all ease-in;
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .card-header {
+        border-bottom: none;
+        background-color: $gray;
+    }
 }
 
 .inline-middle {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }

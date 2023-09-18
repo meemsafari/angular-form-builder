@@ -13,19 +13,20 @@ export class FormsListComponent implements OnInit {
     forms: Form[] = [];
 
     constructor(private formService: FormService,
-                private titleService: Title) {}
+                private titleService: Title) {
+    }
 
     ngOnInit() {
         this.forms = this.formService.getForms();
         this.titleService.setTitle('Forms List | Angular Form Builder');
     }
 
-    confirmDelete(item:Form) {
+    confirmDelete(item: Form) {
         this.confirmModal.item = item;
         this.confirmModal.confirmOpenModal();
     }
 
-    deleteForm(item:Form) {
+    deleteForm(item: Form) {
         this.formService.deleteForm(item);
         this.forms = this.formService.getForms();
     }

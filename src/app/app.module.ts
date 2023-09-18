@@ -17,31 +17,31 @@ import {FieldConfigurationFormComponent} from "./components/field-configuration-
 import {FormViewComponent} from "./pages/form-view/form-view.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AlertComponent,
-    ConfirmModalComponent,
-    FormsListComponent,
-    FormsConfigComponent,
-    FieldConfigurationFormComponent,
-    FormViewComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    ToastrModule.forRoot(),
-    FormService,
-    FormConfigService
-  ],
-  exports: [
-    ConfirmModalComponent
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AlertComponent,
+        ConfirmModalComponent,
+        FormsListComponent,
+        FormsConfigComponent,
+        FieldConfigurationFormComponent,
+        FormViewComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        ToastrModule.forRoot(),
+        FormService,
+        FormConfigService
+    ],
+    exports: [
+        ConfirmModalComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

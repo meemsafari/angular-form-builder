@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Form} from "../interfaces/form.interface";
 import {FormField} from "../interfaces/form-field.interface";
 import {v4 as uuidv4} from "uuid";
@@ -15,23 +15,23 @@ export class FormService {
         this.setForms();
     }
 
-    getSelectedForm(id:string): Form | undefined {
+    getSelectedForm(id: string): Form | undefined {
         return this.forms.find(e => e.id == id);
     }
 
-    createForm(fieldItems:FormField[], accessLevel:string, name:string) {
-        const newForm = { id: uuidv4(), name,accessLevel ,fieldItems };
+    createForm(fieldItems: FormField[], accessLevel: string, name: string) {
+        const newForm = {id: uuidv4(), name, accessLevel, fieldItems};
         this.forms.push(newForm);
         this.toastr.success('Created!');
         this.saveToLocalStorage();
     }
 
-    updateForm(id: string, fieldItems: FormField[], accessLevel:string, name:string) {
+    updateForm(id: string, fieldItems: FormField[], accessLevel: string, name: string) {
         this.forms.map(e => {
             if (e.id == id) {
-                e.fieldItems=fieldItems;
-                e.accessLevel=accessLevel;
-                e.name=name;
+                e.fieldItems = fieldItems;
+                e.accessLevel = accessLevel;
+                e.name = name;
             }
         });
         this.toastr.success('Updated!');

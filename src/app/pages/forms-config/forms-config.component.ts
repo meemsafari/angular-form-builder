@@ -18,9 +18,9 @@ export class FormsConfigComponent {
     @ViewChild(ConfirmModalComponent) public confirmModal!: ConfirmModalComponent;
     formFields: FormField[] = [];
     selectedField: FormField | null = null;
-    pageState:string = "add";
-    formAccessLevel:string = "view";
-    formName:string = "";
+    pageState: string = "add";
+    formAccessLevel: string = "view";
+    formName: string = "";
 
     constructor(private formConfigService: FormConfigService,
                 private formService: FormService,
@@ -103,7 +103,7 @@ export class FormsConfigComponent {
         }
     }
 
-    confirmDelete(item:any) {
+    confirmDelete(item: any) {
         this.confirmModal.item = item;
         this.confirmModal.confirmOpenModal();
     }

@@ -23,7 +23,8 @@ export class FormViewComponent {
         private titleService: Title,
         private formBuilder: FormBuilder,
         private toastr: ToastrService
-    ) {}
+    ) {
+    }
 
     ngOnInit() {
         this.route.params.subscribe((params) => {
