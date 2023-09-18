@@ -9,6 +9,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AlertComponent} from "./components/alert/alert.component";
 import {ConfirmModalComponent} from "./components/confirm-modal/confirm-modal.component";
+import {FormService} from "./services/form.service";
+import {FormConfigService} from "./services/form-config.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {ConfirmModalComponent} from "./components/confirm-modal/confirm-modal.co
     ReactiveFormsModule,
   ],
   providers: [
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormService,
+    FormConfigService
   ],
   bootstrap: [AppComponent]
 })
