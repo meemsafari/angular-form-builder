@@ -1,27 +1,66 @@
-# AngularFormBuilder
+# Angular Form Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+Angular Form Builder is a web application that allows users to create custom forms with various types of fields, such as
+text, description, number, date, and select. Each form can have a name and access level, and each field comes with
+features like required, max, min, and maxlength. The resulting forms are fully functional and apply all specified
+options and features, respecting access levels.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Features](#features)
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before you can use Angular Form Builder, ensure that you have the following prerequisites installed:
 
-## Build
+- Node.js (Version > 18)
+- npm (Node Package Manager)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+To get started with Angular Form Builder, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the project repository:
 
-## Running end-to-end tests
+   ```bash
+   git clone https://github.com/meemsafari/angular-form-builder.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Navigate to the project directory:
 
-## Further help
+   ```bash
+   cd angular-form-builder
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Install project dependencies:
+
+   ```bash
+   npm install
+
+## Configuration
+
+Before running the application, you may need to configure certain settings.
+
+### Angular Version:
+
+This project uses Angular 16.2.0. Ensure that you have the correct Angular version installed.
+
+### Additional Dependencies:
+
+The project relies on several libraries:
+
+- ngx-toastr (Version 17.0.2)
+- bootstrap (Version 5.3.2)
+- uuid (Version 9.0.1)
+
+### Development Mode:
+
+To run the project in development mode, use the following command: ng serve
+
+## Features
+
+- Create custom forms with various field types.
+- Configure field properties like required, max, min, and maxlength.
+- Set form names and access levels.
+- Display and interact with the created forms, applying all options and features.
